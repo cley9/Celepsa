@@ -21,14 +21,10 @@ import java.util.Properties;
 public class Celepsa {
 
     public static void main(String[] args) throws SQLException {
-            ConectionClass con=new ConectionClass();
-            Statement statement = con.dbsql().createStatement();
-            String selectSql = "SELECT top 10 * FROM OPCUAs60.dbo.Items";
-            ResultSet resultSet = statement.executeQuery(selectSql);
-              while (resultSet.next()){
-                System.out.println(resultSet.getString(1));
-            }
-
+         
+           ConsultaSql col=new ConsultaSql();
+         
+            System.out.println(col.select());
             
     }
 }
