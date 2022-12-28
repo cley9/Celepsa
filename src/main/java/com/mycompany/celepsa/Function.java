@@ -13,5 +13,5 @@ import java.sql.SQLException;
  */
 public interface Function {
     //public abstract Connection tableSql();
-    public abstract Connection tableSql() throws SQLException;
+    public abstract String tableSql() throws SQLException;
 }

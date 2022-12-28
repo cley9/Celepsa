@@ -17,7 +17,7 @@ import java.sql.Statement;
 public class ConsultaSql implements Function {
 
     @Override
-public Connection tableSql() throws SQLException{
+public String tableSql() throws SQLException{
        ConectionClass con=new ConectionClass();
             Statement statement = con.dbsql().createStatement();
             String selectSql = "SELECT top 10 * FROM OPCUAs60.dbo.Items";
@@ -28,7 +28,7 @@ public Connection tableSql() throws SQLException{
                   System.out.println(rs.getString("ID"));
             }
              // return "--"+data;
-               return null;
+               return data;
 }
   
       
