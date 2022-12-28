@@ -9,7 +9,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 
 /**
@@ -19,36 +21,14 @@ import java.util.Properties;
 public class Celepsa {
 
     public static void main(String[] args) throws SQLException {
-                          Properties prop = new Properties();
-        InputStream input = null;
+            ConectionClass con=new ConectionClass();
+            Statement statement = con.dbsql().createStatement();
+            String selectSql = "SELECT top 10 * FROM OPCUAs60.dbo.Items";
+            ResultSet resultSet = statement.executeQuery(selectSql);
+              while (resultSet.next()){
+                System.out.println(resultSet.getString(1));
+            }
 
-try {
-    // Carga las propiedades del archivo
-    input = new FileInputStream("C:\\laragon\\www\\MS-SPRINT-BOOT\\MS-JAVA\\Celepsa\\src\\main\\java\\com\\mycompany\\celepsa\\dba.properties");
-    prop.load(input);
-
-    // Obtiene los valores de las propiedades
-    String url = prop.getProperty("database.url");
-    String username = prop.getProperty("database.username");
-    String password = prop.getProperty("database.password");
-
-    // Usa los valores para conectarte a la base de datos
-    Connection conn = DriverManager.getConnection(url, username, password);
-    System.out.println("conex");
-    
-    
-    //return conn;
-    // ...
-} catch (IOException ex) {
-    ex.printStackTrace();
-} finally {
-    if (input != null) {
-        try {
-            input.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-}
+            
     }
 }
