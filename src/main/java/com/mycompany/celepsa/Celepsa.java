@@ -24,7 +24,7 @@ public class Celepsa {
          
            ConsultaSql col=new ConsultaSql();
          
-            System.out.println(col.select());
+            System.out.println(col.tableSql());
             
     }
 }
