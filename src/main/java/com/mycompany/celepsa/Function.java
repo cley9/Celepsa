@@ -6,12 +6,15 @@ package com.mycompany.celepsa;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
  * @author cley
  */
 public interface Function {
+    
     //public abstract Connection tableSql();
     public abstract String tableSql() throws SQLException;
+    public abstract String joinSql()throws SQLException;
 }
